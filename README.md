@@ -25,7 +25,7 @@ To contribute to this project, please follow the instructions below:
 3. Check the 'issues' tab for pending tasks and features to work on.
 
 ## Contributing
-We welcome contributions from the community. Please read our contributing guidelines and submit pull requests to our repository.
+Contributions are only limited to team members for the period of the hackathon. In the future, we will welcome contributions from the community. Please read our contributing guidelines and submit pull requests to our repository.
 
 ## License
 This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License - see the LICENSE file for details.
