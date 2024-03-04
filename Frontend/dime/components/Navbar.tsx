@@ -7,16 +7,15 @@ import {
   useWriteContract,
 } from "wagmi";
 import { useBalance } from "wagmi";
-
+import { formatEther, parseEther } from "viem";
+import { useReadContract } from "wagmi";
 
 import { useState } from "react";
 import { request } from "http";
-import Navbar from "../components/Navbar";
+
 const inter = Inter({ subsets: ["latin"] });
 
-const ERC_20_TOKEN_ADDRESS = "0x49F807b115af3C2B80267c1EFFE131C4Df971Fd5";
-
-export default function Home() {
+const Navbar = () => {
   const { isConnected, isConnecting, address } = useAccount();
 
   const Balance = useBalance({
@@ -27,11 +26,15 @@ export default function Home() {
 
   return (
     <main
-      className={` ${inter.className}`}
+      className={`flex    justify-between p-10 ${inter.className}`}
     >
-      <Navbar />
 
-     
+      <div>DIME</div>
+      <ConnectButton />
+
+    
     </main>
   );
-}
+};
+
+export default Navbar;
