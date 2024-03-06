@@ -15,27 +15,27 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Team from "../components/Team";
 import Hero from "../components/Hero";
+import ThemeSwitcher from  "../components/ThemeSwitcher";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const ERC_20_TOKEN_ADDRESS = "0x49F807b115af3C2B80267c1EFFE131C4Df971Fd5";
 
 export default function Home() {
-  const { isConnected, isConnecting, address } = useAccount();
-
-  const Balance = useBalance({
-    address: address,
-  });
-
-  const { disconnect } = useDisconnect();
+  
 
   return (
     <main
-      className={` ${inter.className}`}
+      className={  ` bg-gray-300  ${inter.className}`}
     >
       <Navbar />
       <Hero/>
       <Team/>
       <Footer/>
+      <ThemeSwitcher />
+      
+      
+
 
      
     </main>

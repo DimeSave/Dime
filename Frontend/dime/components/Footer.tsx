@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Footer = () => {
   return (
     <footer className="text-gray-600 body-font">
@@ -38,6 +39,7 @@ const Footer = () => {
           </a>
         </span>
       </div>
+      
     </footer>
   );
 }

@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from 'next/link'
+import LoginButton from "./LoginButton";
 import {
   useAccount,
   useDisconnect,
@@ -30,7 +32,13 @@ const Navbar = () => {
     >
 
       <div>DIME</div>
-      <ConnectButton />
+
+      <div className="flex items-center gap-2">
+      <Link href="/login"> <LoginButton/></Link>
+       
+        <ConnectButton />
+      </div>
+     
 
     
     </main>
