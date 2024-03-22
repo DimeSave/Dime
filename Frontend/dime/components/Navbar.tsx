@@ -14,6 +14,7 @@ import { useReadContract } from "wagmi";
 
 import { useState } from "react";
 import { request } from "http";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ const Navbar = () => {
       <Link href="/login"> <LoginButton/></Link>
        
         <ConnectButton />
+        <ThemeSwitcher />
       </div>
      
 
