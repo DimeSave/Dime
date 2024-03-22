@@ -1,8 +1,8 @@
-const { Sequelize } = require("sequelize");
+import { Sequelize } from "sequelize";
 
 const database = new Sequelize({
-  dialect: "sqlite",
-  storage: "./database.sqlite3",
+  dialect: "mysql",
+  storage: "./database.mysql2",
 });
 
-module.exports = database;
+export default database;
