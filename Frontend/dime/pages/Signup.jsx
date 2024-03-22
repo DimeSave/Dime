@@ -1,9 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-
+import Navbar from '../components/Navbar';
+import Footer from '@/components/Footer';
 const Signup = () => {
   return (
     <div class="font-[sans-serif] text-[#333] mt-4 p-4 relative">
+      <Navbar/>
     <div class="max-w-md w-full mx-auto relative z-50">
       <div class="text-center mb-8">
       <Link href="/"> DIME</Link>
@@ -67,7 +69,7 @@ const Signup = () => {
         </form>
       </div>
     </div>
-    <img src="https://readymadeui.com/bg-effect.svg" class="absolute inset-0 w-full h-full z-0 opacity-40" />
+   <Footer/>
   </div>
   )
 }

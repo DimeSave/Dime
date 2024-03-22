@@ -32,7 +32,7 @@ export default function Home() {
       <Hero/>
       <Team/>
       <Footer/>
-      <ThemeSwitcher />
+      
       
       
 
