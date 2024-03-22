@@ -73,7 +73,24 @@ const Dapp = () => {
     args: ["0x852CB496f904B784B99E418cDE57452a70fc7559"], // replace with the address you want to check the balance for
   });
 
-  console.log(databalances)
+  console.log(databalances);
+
+  const [formData, setFormData] = useState({
+    address:'',
+    value:0
+  })
+
+
+  // To Write Contracts using Wagmi
+	const { data: simulatedContract } = useSimulateContract({
+		abi: dimeAbi,
+		functionName: 'transferFrom',
+		args: [address, parseEther('40000')],
+		address: '0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38',
+	});
+
+
+ 
 
   return (
     <div>
@@ -98,6 +115,17 @@ const Dapp = () => {
       <p>The result of balances is: {databalances}</p>
 
       <p>Contract address: {deployedContract as string}</p>
+
+      <div>
+				<input
+					type="text"
+					className="text-black"
+					placeholder="Enter Address"
+					onChange={(event) => {
+						updateFormField('name', event.target.value);
+					}}
+				/>
+			</div>
     </div>
   );
 }
