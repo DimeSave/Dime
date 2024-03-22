@@ -76,9 +76,13 @@ const Dapp = () => {
   console.log(databalances);
 
   const [formData, setFormData] = useState({
-    address:'',
-    value:0
+    addBill:'',
+    recipient:'',
+    lockAmount:0,
+    lockDurationMins:0,
   })
+
+  console.log(formData)
 
 
   // To Write Contracts using Wagmi
@@ -122,7 +126,7 @@ const Dapp = () => {
 					className="text-black"
 					placeholder="Enter Address"
 					onChange={(event) => {
-						updateFormField('name', event.target.value);
+						setFormData((prev) => ({...prev, address:event.target.value }));
 					}}
 				/>
 			</div>
