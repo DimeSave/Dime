@@ -1,6 +1,8 @@
+
+"use client";
 import React, { useEffect, useState } from 'react';
 import { Inter } from "next/font/google";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectButton, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import Link from 'next/link';
 import {
   useAccount,
@@ -8,90 +10,101 @@ import {
   useSimulateContract,
   useWriteContract,
   useBalance,
+
+  
   useReadContract,
 } from "wagmi";
+import {writeContract} from '@wagmi/core'
 import { formatEther, parseEther } from "viem";
 import { dimeAbi } from "../dimeAbi";
 import { request } from "http";
+import { arbitrumSepolia } from 'viem/chains';
+import { config  } from "../components/AppConfig"
+
+
 
 const Dapp = () => {
-  const { isConnected, isConnecting, address } = useAccount();
-  const Balance = useBalance({
-    address: address,
-  });
+//   const { isConnected, isConnecting, address } = useAccount();
 
-  const { data: deployedContract, error: contractError } = useReadContract({
-    abi: dimeAbi,
-    address: '0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38',
-    functionName: 'owner',
-    args: [],
-  });
+//   const Balance = useBalance({
+//     address: address,
+//   });
 
-  const { data: datagetLockCountdown, isLoading: loadinggetLockCountdown, isError: isErrorgetLockCountdown } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "getLockCountdown",
-    args: [1], // replace with the billId you want to use
-  });
+//   const { data: deployedContract, error: contractError } = useReadContract({
+//     abi: dimeAbi,
+//     address: '0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38',
+//     functionName: 'owner',
+//     args: [],
+//   });
 
-  const { data, isLoading, isError } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "getBalance",
-    args: [],
-  });
+//   const { data: datagetLockCountdown, isLoading: loadinggetLockCountdown, isError: isErrorgetLockCountdown } = useReadContract({
+//     abi: dimeAbi,
+//     address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
+//     functionName: "getLockCountdown",
+//     args: [1], // replace with the billId you want to use
+//   });
 
-  const { data: datagetLockDetails, isLoading: isLoadinggetLockDetails, isError: isErrorgetLockDetails } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "getLockDetails",
-    args: [0], // replace with the billId you want to use
-  });
+//   const { data, isLoading, isError } = useReadContract({
+//     abi: dimeAbi,
+//     address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
+//     functionName: "getBalance",
+//     args: [],
+//   });
 
-  const { data: databills, isLoading: isLoadingbills, isError: isErrorbills } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "bills",
-    args: [123], // replace with the index of the bill you want to retrieve
-  });
+//   const { data: datagetLockDetails, isLoading: isLoadinggetLockDetails, isError: isErrorgetLockDetails } = useReadContract({
+//     abi: dimeAbi,
+//     address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
+//     functionName: "getLockDetails",
+//     args: [0], // replace with the billId you want to use
+//   });
+
+//   const { data: databills, isLoading: isLoadingbills, isError: isErrorbills } = useReadContract({
+//     abi: dimeAbi,
+//     address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
+//     functionName: "bills",
+//     args: [123], // replace with the index of the bill you want to retrieve
+//   });
 
 //   console.log(databills)
 
-  const { data: databillCount, isLoading: isLoadingbillCount, isError: isErrorbillCount } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "billCount",
-    args: [],
-  });
+//   const { data: databillCount, isLoading: isLoadingbillCount, isError: isErrorbillCount } = useReadContract({
+//     abi: dimeAbi,
+//     address: "0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2",
+//     functionName: "billCount",
+//     args: [],
+//   });
 
-  console.log(databillCount)
 
-  const { data: databalances, isLoading: isLoadingbalances, isError: isErrorbalances } = useReadContract({
-    abi: dimeAbi,
-    address: "0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38",
-    functionName: "balances",
-    args: ["0x852CB496f904B784B99E418cDE57452a70fc7559"], // replace with the address you want to check the balance for
-  });
+  const { data: addbilldata,  } = useSimulateContract({
+    address: "0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2",
+    abi:dimeAbi,
+    args: ["0x852CB496f904B784B99E418cDE57452a70fc7559", '100', '10'],
+    functionName: "addBill"
+});
+const {writeContractAsync} = useWriteContract()
 
-  console.log(databalances);
+//   console.log(databalances);
 
   const [formData, setFormData] = useState({
-    addBill:'',
-    recipient:'',
-    lockAmount:0,
-    lockDurationMins:0,
+    amount:'',
+    recipientAddress:'',
+    lockDuration:'',
   })
 
-  console.log(formData)
+    const addbill = async () => {
+        console.log("hello ghhffgg")
+      const response = await writeContractAsync(addbilldata.request)
+    //  const response =    await writeContract(config,{
+    //         address: "0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2",
+    //         abi:dimeAbi,
+    //         args: ["0x852CB496f904B784B99E418cDE57452a70fc7559", '100', '10'],
+    //         functionName: "addBill"
+    //     })
+    
+    //     console.log(response)
+    }
 
 
-  // To Write Contracts using Wagmi
-	const { data: simulatedContract } = useSimulateContract({
-		abi: dimeAbi,
-		functionName: 'transferFrom',
-		args: [address, parseEther('40000')],
-		address: '0xD977A3Cb70De0Cbe61aC60d01730f02F17daEa38',
-	});
 
 
  
@@ -111,25 +124,56 @@ const Dapp = () => {
         </ul>
       </div>
 
-      <p>The result of getLockCountdown is: {datagetLockCountdown}</p>
-      <p>The result of getBalance is: {data}</p>
-      <p>The result of getLockDetails is: {datagetLockDetails}</p>
+      {/* <p>The result of getLockCountdown is: {datagetLockCountdown}</p> */}
+      {/* <p>The result of getBalance is: {data}</p> */}
+      {/* <p>The result of getLockDetails is: {datagetLockDetails}</p> */}
       {/* <p>The result of bills is: {databills.recipient} {databills.amount} {databills.paid} {databills.lockDuration} {databills.lockReleaseTime}</p> */}
-      <p>The result of billCount is: {databillCount}</p>
-      <p>The result of balances is: {databalances}</p>
+      {/* <p>The result of billCount is: {databillCount}</p>
+      <p>The result of balances is: {databalances}</p> */}
 
-      <p>Contract address: {deployedContract as string}</p>
+      {/* <p>Contract address: {deployedContract as string}</p> */}
 
-      <div>
+      <div className='m-5'>
+      <p>
 				<input
 					type="text"
 					className="text-black"
-					placeholder="Enter Address"
+					placeholder="Amount"
 					onChange={(event) => {
-						setFormData((prev) => ({...prev, address:event.target.value }));
+						setFormData((prev) => ({...prev, amount:event.target.value }));
 					}}
 				/>
-			</div>
+			</p>
+
+            <p>
+				<input
+					type="text"
+					className="text-black"
+					placeholder="recipient Address"
+					onChange={(event) => {
+						setFormData((prev) => ({...prev, recipient:event.target.value }));
+					}}
+				/>
+			</p>
+
+            <p>
+				<input
+					type="text"
+					className="text-black"
+					placeholder="lockDuration"
+					onChange={(event) => {
+						setFormData((prev) => ({...prev, lockDuration:event.target.value }));
+					}}
+				/>
+			</p>
+
+      </div>
+
+      <button onClick={() => addbill()}>
+confirm tx
+      </button>
+
+     
     </div>
   );
 }
