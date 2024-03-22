@@ -17,7 +17,7 @@ const Login = () => {
             <form>
               <div className="mb-12">
                 <h3 className="text-3xl font-extrabold">Sign in</h3>
-                <p className="text-sm mt-4 ">Don't have an account <Link href="/Signup"> <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a> </Link> </p>
+                <p className="text-sm mt-4 ">Dont have an account <Link href="/Signup"> <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a> </Link> </p>
               </div>
               <div>
                 <label className="text-xs block mb-2">Email</label>
@@ -48,7 +48,7 @@ const Login = () => {
               <div className="flex items-center justify-between gap-2 mt-5">
                 <div className="flex items-center">
                   <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                  <label for="remember-me" className="ml-3 block text-sm">
+                  <label htmlFor="remember-me" className="ml-3 block text-sm">
                     Remember me
                   </label>
                 </div>
