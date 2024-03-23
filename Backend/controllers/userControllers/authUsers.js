@@ -6,6 +6,7 @@ import {
   passwordUtils,
   PasswordHarsher,
   generateLongString,
+  sendRegistrationEmail,
 } from "../../utilities/helpers.js";
 import logger from "../../utilities/logger.js";
 import { userRegisterSchema } from "../../utilities/validators/index.js";
@@ -13,7 +14,7 @@ import userModels from "../../models/userModels.js";
 import nodemailer from "nodemailer"
 import dotenv from "dotenv";
 import ENV, { APP_SECRET } from "../../config/env.js";
-import * as jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 dotenv.config();
 
@@ -62,12 +63,17 @@ export const registerUser = async (req, res) => {
       verifyEmailToken: longString,
     });
 
+    const user = { email: newEmail, firstName, lastName }
+    const url = 'localhost:5010/users/verifyEmail'
+
+    sendRegistrationEmail(user, url)
     return res.status(HTTP_STATUS_CODE.SUCCESS).json({
       message: `Registration Successful`,
       user: {
         firstName,
         lastName,
         email: newEmail,
+        verifyEmailToken: longString,
       },
     });
   } catch (error) {
@@ -80,8 +86,8 @@ export const registerUser = async (req, res) => {
  
 export const verifyUser = async (req, res) => {
   try {
-    const { token } = req.query;
-
+    const gottenToken  = req.headers.authorization;
+    const token = gottenToken.split(' ')[1]
     const user = await userModels.findOne({
       where: { verifyEmailToken: token }
     });
@@ -132,7 +138,6 @@ export const loginUser = async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        phone: user.phone,
       },
       `${APP_SECRET}`,
       { expiresIn: "1d" }
