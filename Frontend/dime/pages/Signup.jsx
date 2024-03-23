@@ -11,6 +11,7 @@ const Signup = () => {
     email: '',
     phone: '',
     password: '',
+    
   })
 
   const updateField = (field, value) => {
@@ -21,7 +22,9 @@ const Signup = () => {
   const  handleSubmit  = async () => {
     const response = await registerUser(values)
     if (response) {
-
+      <Link href="localhost:5010/users/verifyEmail"> Verify </Link>
+    } else {
+      res.send("please verify email")
     }
   }
 
@@ -54,6 +57,16 @@ const Signup = () => {
               <label class="text-sm mb-2 block">Last Name</label>
               <div class="relative flex items-center">
                 <input value={values.lastName} onChange={(event) => updateField("lastName", event.target.value) } name="name" type="text" required class="bg-white border border-gray-300 w-full text-sm px-4 py-2.5 rounded outline-blue-500" placeholder="Enter name" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-4 h-4 absolute right-4" viewBox="0 0 24 24">
+                  <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                  <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>
+                </svg>
+              </div>
+              </div>
+              <div>
+              <label class="text-sm mb-2 block">Phone Number</label>
+              <div class="relative flex items-center">
+                <input value={values.phone} onChange={(event) => updateField("phone", event.target.value) } name="name" type="text" required class="bg-white border border-gray-300 w-full text-sm px-4 py-2.5 rounded outline-blue-500" placeholder="Enter Number" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-4 h-4 absolute right-4" viewBox="0 0 24 24">
                   <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                   <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>

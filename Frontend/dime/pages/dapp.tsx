@@ -7,7 +7,7 @@ import { Deposit } from '../callContract/Deposit'
 // import { PayBill } from '../callContract/PayBill'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
-import RenounceOwnership from '@/callContract/RenounceOwnerShip';
+import RenounceOwnership from '@/callContract/RenounceOwnership';
 
 const dapp = () => {
   return (
