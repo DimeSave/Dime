@@ -1,5 +1,3 @@
-"use client"
-
 import { useWriteContract } from 'wagmi';
 import { dimeAbi } from '../dimeAbi';
 import React from 'react';
@@ -11,11 +9,12 @@ export function Deposit() {
 
   const handleDeposit = async () => {
     try {
+      const valueInWei = BigInt('10000000000000000000'); // Convert string to BigInt
       const response = await writeContractAsync({
         address: contractAddress,
         abi: dimeAbi,
         functionName: 'deposit',
-        value: '10000000000000000000', // 10 ETH in wei (adjust as needed)
+        value: valueInWei, // Use BigInt for value
       });
       console.log('Deposit response:', response);
     } catch (error) {
@@ -25,15 +24,14 @@ export function Deposit() {
 
   return (
     <div className="container mx-auto p-5">
-    <h1 className="text-2xl font-bold mb-4">DEPOSIT</h1>
-    <button
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
-      onClick={handleDeposit}
-    >
-      Deposit
-    </button>
-  </div>
-  
+      <h1 className="text-2xl font-bold mb-4">DEPOSIT</h1>
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
+        onClick={handleDeposit}
+      >
+        Deposit
+      </button>
+    </div>
   );
 }
 
