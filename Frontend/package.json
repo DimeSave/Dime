@@ -1,7 +1,10 @@
 {
   "name": "hardhat-project",
   "scripts": {
-    "exec": "hardhat run scripts/exec.js"
+    "exec": "hardhat run scripts/exec.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
