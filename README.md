@@ -31,4 +31,4 @@ Contributions are only limited to team members for the period of the hackathon. 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE Version 3 License - see the LICENSE file for details.
 
 ## Contact
-For any inquiries or contributions, please contact the project maintainers at [samueladeyeye2012@gmail.com].
+For any inquiries or contributions, please contact the project maintainers at [dimesaveapp@gmail.com].
