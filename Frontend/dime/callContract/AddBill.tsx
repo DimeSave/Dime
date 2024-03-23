@@ -20,7 +20,7 @@ export function AddBill() {
     lockDuration: '',
   });
 
-  const handleInputChange = (event, field) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, field: string) => {
     const value = event.target.value;
     setFormData((prevData) => ({
       ...prevData,

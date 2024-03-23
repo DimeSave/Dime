@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import { AddBill } from '../callContract/AddBill'
 import { Deposit } from '../callContract/Deposit'
-import { PayBill } from '../callContract/PayBill'
+// import { PayBill } from '../callContract/PayBill'
 import { RenounceOwnership } from '../callContract/RenounceOwnership'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
