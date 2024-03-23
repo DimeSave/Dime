@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useState } from 'react';
 import { useSimulateContract, useWriteContract } from 'wagmi';
 import { dimeAbi } from '../dimeAbi';
@@ -20,7 +18,10 @@ export function AddBill() {
     lockDuration: '',
   });
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, field: string) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    field: string
+  ) => {
     const value = event.target.value;
     setFormData((prevData) => ({
       ...prevData,
@@ -31,8 +32,12 @@ export function AddBill() {
   const addBill = async () => {
     console.log('Adding bill...');
     try {
-      const response = await writeContractAsync(addbilldata.request);
-      console.log('Transaction response:', response);
+      if (addbilldata) { // Check if addbilldata is defined
+        const response = await writeContractAsync(addbilldata.request);
+        console.log('Transaction response:', response);
+      } else {
+        console.error('addbilldata is undefined');
+      }
     } catch (error) {
       console.error('Error adding bill:', error);
     }
@@ -40,7 +45,7 @@ export function AddBill() {
 
   return (
     <div className="container mx-auto p-5">
-       <h1 className="text-2xl font-bold mb-4">ADD BILL</h1>
+      <h1 className="text-2xl font-bold mb-4">ADD BILL</h1>
       <div className="m-5">
         <input
           type="text"
@@ -65,8 +70,8 @@ export function AddBill() {
       </div>
 
       <button
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
-      onClick={addBill}
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
+        onClick={addBill}
       >
         Confirm Transaction
       </button>
