@@ -1,20 +1,23 @@
 import React from 'react';
 import Link from 'next/link'
-
+import Navbar from '../components/Navbar';
+import Footer from '@/components/Footer';
 const Login = () => {
   
   
 
   return (
-    
-    <div className="font-[sans-serif] text-[#333]">
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div className="grid md:grid-cols-2 items-center gap-4 max-w-6xl w-full p-4 m-4 shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
-          <div className="md:max-w-md w-full sm:px-6 py-4">
+
+    <div>
+          <Navbar/>
+
+
+<div className="max-w-md w-full mx-auto relative z-50">
+     
             <form>
               <div className="mb-12">
                 <h3 className="text-3xl font-extrabold">Sign in</h3>
-                <p className="text-sm mt-4 ">Don't have an account <Link href="/Signup"> <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a> </Link> </p>
+                <p className="text-sm mt-4 ">Dont have an account <Link href="/Signup"> <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a> </Link> </p>
               </div>
               <div>
                 <label className="text-xs block mb-2">Email</label>
@@ -45,7 +48,7 @@ const Login = () => {
               <div className="flex items-center justify-between gap-2 mt-5">
                 <div className="flex items-center">
                   <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" />
-                  <label for="remember-me" className="ml-3 block text-sm">
+                  <label htmlFor="remember-me" className="ml-3 block text-sm">
                     Remember me
                   </label>
                 </div>
@@ -99,13 +102,14 @@ const Login = () => {
                 </button>
               </div>
             </form>
-          </div>
-          <div className="md:h-full max-md:mt-10 bg-[#000842] rounded-xl lg:p-12 p-8">
-            <img src="https://readymadeui.com/signin-image.webp" className="w-full h-full object-contain" alt="login-image" />
-          </div>
         </div>
-      </div>
+        <Footer/>
+
     </div>
+    
+  
+       
+      
   );
 };
 

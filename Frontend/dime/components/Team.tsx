@@ -15,12 +15,11 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
-                  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.jpg" alt="Trendy Pants and Shoes"
-                    className="mb-6 w-full rounded-md lg:mb-0" />
+                  
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
-                  <h5 className="mb-2 text-lg font-bold">Darren Randolph</h5>
-                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Marketing expert</p>
+                  <h5 className="mb-2 text-lg font-bold">Samuel Adeyeye</h5>
+                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Blockchain Developer</p>
                   <ul className="mx-auto flex list-inside justify-center lg:justify-start">
                     <a href="#!" className="px-2">
                      
@@ -56,12 +55,11 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
-                  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/4.jpg" alt="Trendy Pants and Shoes"
-                    className="mb-6 w-full rounded-md lg:mb-0" />
+                  
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
-                  <h5 className="mb-2 text-lg font-bold">Maliha Welch</h5>
-                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Web designer</p>
+                  <h5 className="mb-2 text-lg font-bold">Alade Jamiu</h5>
+                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Blockchain Developer</p>
                   <ul className="mx-auto flex list-inside justify-center lg:justify-start">
                     <a href="#!" className="px-2">
                     
@@ -97,12 +95,11 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
-                  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/12.jpg" alt="Trendy Pants and Shoes"
-                    className="mb-6 w-full rounded-md lg:mb-0" />
+                 
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
-                  <h5 className="mb-2 text-lg font-bold">Avaya Hills</h5>
-                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Copywriter</p>
+                  <h5 className="mb-2 text-lg font-bold">Kazeem Lukman</h5>
+                  <p className="mb-4 text-neutral-500 dark:text-neutral-300">Blockchainn Developer</p>
                   <ul className="mx-auto flex list-inside justify-center lg:justify-start">
                     <a href="#!" className="px-2">
                      
