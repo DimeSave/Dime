@@ -26,7 +26,7 @@ export function AddBill() {
       ...prevData,
       [field]: value,
     }));
-  };gi
+  };
 
   const addBill = async () => {
     console.log('Adding bill...');
