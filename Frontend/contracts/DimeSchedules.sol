@@ -68,9 +68,10 @@ contract DimeSchedule is Ownable {
         address payable recipient,
         uint256 amount,
         uint256 lockDurationMins
-    ) external payable onlyOwner {
+    ) external payable  {
         // Increment the bill count
         billCount++;
+
 
         // Calculate lock duration in seconds
         uint256 lockDurationSeconds = lockDurationMins.mul(60);
