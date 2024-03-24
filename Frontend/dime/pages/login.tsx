@@ -10,7 +10,7 @@ const Login = () => {
     rememberMe: false,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; type: any; checked: any; }; }) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
     setFormData((prevData) => ({
@@ -19,7 +19,7 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Add your form submission logic here, e.g., API calls, validation checks, etc.
     console.log('Form data:', formData);
@@ -33,10 +33,12 @@ const Login = () => {
           <div className="mb-12">
             <h3 className="text-3xl font-extrabold">Sign in</h3>
             <p className="text-sm mt-4">
-              Don't have an account{' '}
-              <Link href="/Signup">
-                <a className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a>
-              </Link>
+              Dont have an account{' '}
+              <Link href="/Signup"    className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap"
+>
+    Register here
+  
+</Link>
             </p>
           </div>
           <div>
