@@ -7,7 +7,8 @@ import { AddBill } from '../callContract/AddBill'
 import { Deposit } from '../callContract/Deposit'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
-import RenounceOwnership from '@/callContract/RenounceOwnerShip';
+import { payBill } from '../callContract/PayBill';
+import {RenounceOwnership} from '../callContract/RenounceOwnership';
 
 const dapp = () => {
   return (
@@ -29,6 +30,7 @@ const dapp = () => {
       <div className=''>
       <AddBill  />
       <Deposit />
+      <payBill/>
       <RenounceOwnership />
       <TransferOwnership />
       <Withdraw />

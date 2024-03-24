@@ -30,9 +30,7 @@ const Signup = () => {
     <div className="font-[sans-serif] text-[#333] mt-4 p-4 relative">
       <Navbar />
       <div className="max-w-md w-full mx-auto relative z-50">
-        <div className="text-center mb-8">
-          <Link href="/"> DIME</Link>
-        </div>
+      
         <div className="border border-gray-300 bg-white rounded-md p-8">
           <form className="w-full" onSubmit={handleSubmit}>
             <div className="mb-6">
