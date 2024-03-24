@@ -7,8 +7,10 @@ import { AddBill } from '../callContract/AddBill'
 import { Deposit } from '../callContract/Deposit'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
-import { payBill } from '../callContract/PayBill';
+import { PayBill } from '../callContract/PayBill'
 import {RenounceOwnership} from '../callContract/RenounceOwnership';
+import ThemeSwitcher from "../components/ThemeSwitcher";
+
 
 const dapp = () => {
   return (
@@ -22,15 +24,26 @@ const dapp = () => {
             alt="DIME"
           />
         </Link>
-        <ul className="ml-auto flex items-center text-black">
-          <ConnectButton />
+        <ul className="ml-auto  flex items-center  text-black">
+          <div className=' flex justify-center  items-center'>
+            <div className='mr-3'>
+            <ConnectButton />
+            </div>
+
+            <div>
+            < ThemeSwitcher/>
+            </div>
+         
+        
+          </div>
+         
         </ul>
       </div>
 
       <div className=''>
       <AddBill  />
       <Deposit />
-      <payBill/>
+      <PayBill/>
       <RenounceOwnership />
       <TransferOwnership />
       <Withdraw />

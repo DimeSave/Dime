@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useWriteContract } from 'wagmi';
 import { dimeAbi } from '../dimeAbi';
 
@@ -6,6 +6,12 @@ const contractAddress = '0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2';
 
 export function Withdraw() {
   const { writeContractAsync } = useWriteContract();
+
+  const [formData, setFormData] = useState({
+    amount: '',
+    recipientAddress: '',
+    lockDuration: '',
+  });
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -24,7 +30,7 @@ export function Withdraw() {
         address: contractAddress,
         abi: dimeAbi,
         functionName: 'withdraw',
-        args: ["10"], // Pass the amount to withdraw as an argument
+        args: ["10"], 
       });
       console.log('Withdraw response:', response);
     } catch (error) {

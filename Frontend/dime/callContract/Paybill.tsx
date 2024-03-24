@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useWriteContract } from 'wagmi';
 import { dimeAbi } from '../dimeAbi';
 
@@ -6,6 +6,12 @@ const contractAddress = '0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2';
 
 export function PayBill() {
   const { writeContractAsync } = useWriteContract();
+
+  const [formData, setFormData] = useState({
+    amount: '',
+    recipientAddress: '',
+    lockDuration: '',
+  });
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
