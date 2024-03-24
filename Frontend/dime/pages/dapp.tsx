@@ -1,10 +1,10 @@
 import React from 'react'
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from 'next/link'
+import Image from 'next/image';
 
 import { AddBill } from '../callContract/AddBill'
 import { Deposit } from '../callContract/Deposit'
-// import { PayBill } from '../callContract/PayBill'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
 import RenounceOwnership from '@/callContract/RenounceOwnerShip';
@@ -12,22 +12,29 @@ import RenounceOwnership from '@/callContract/RenounceOwnerShip';
 const dapp = () => {
   return (
     <div>
-      <div className="py-2 px-6 bg-[#f8f4f3] flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30">
-        <Link href="/">
-          <button type="button" className="text-lg text-gray-900 font-semibold sidebar-toggle">
-            DIME
-          </button>
+      <div className="py-2 px-6 bg-[#f8f4f3] mb-5  flex items-center shadow-md shadow-black/5  top-0 left-0 z-30">
+      <Link href={'/'}>
+        <Image
+            src="/Dime.jpg"
+            width={100}
+            height={100}
+            alt="DIME"
+          />
         </Link>
         <ul className="ml-auto flex items-center text-black">
           <ConnectButton />
         </ul>
       </div>
-      <AddBill />
+
+      <div className=''>
+      <AddBill  />
       <Deposit />
       <RenounceOwnership />
-      {/* <PayBill /> */}
       <TransferOwnership />
       <Withdraw />
+      </div>
+
+      
     </div>
   )
 }
