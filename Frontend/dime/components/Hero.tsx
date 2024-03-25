@@ -4,9 +4,7 @@ import Link from 'next/link';
 const Hero = () => {
   return (
     <section className="mb-40">
-      <nav className="relative flex w-full items-center justify-between bg-white py-2 shadow-sm shadow-neutral-700/10 dark:bg-neutral-800 dark:shadow-black/30 lg:flex-wrap lg:justify-start" data-te-navbar-ref>
-        {/* Your navigation content */}
-      </nav>
+     
 
       <div className="relative overflow-hidden bg-cover bg-no-repeat" style={{
         backgroundPosition: '50%',
