@@ -10,9 +10,30 @@ import { Withdraw } from '../callContract/Withdraw'
 import { PayBill } from '../callContract/PayBill'
 import {RenounceOwnership} from '../callContract/RenounceOwnership';
 import ThemeSwitcher from "../components/ThemeSwitcher";
+import { useAccount } from 'wagmi'
+
+const Dapp = () => {
+
+  const {isConnected , isConnecting} = useAccount()
+
+  if  (isConnecting) return <div className="flex min-h-screen flex-col items-center justify-between p-52  text-8xl		 ">Connecting...</div>;
+		if  (!isConnected) return <div className="flex min-h-screen flex-col items-center justify-between p-52">
+      <div >
+			<p className='text-6xl'>Embark on the decentralized revolution! Connect your wallet to get started</p>
+			<ConnectButton />
+		</div>
+    </div>
+
+    
+  
 
 
-const dapp = () => {
+ 
+
+  
+		
+
+
   return (
     <div>
       <div className="py-2 px-6 bg-[#f8f4f3] mb-5  flex items-center shadow-md shadow-black/5  top-0 left-0 z-30">
@@ -54,4 +75,4 @@ const dapp = () => {
   )
 }
 
-export default dapp
+export default Dapp
