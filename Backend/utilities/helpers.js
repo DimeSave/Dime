@@ -1,20 +1,15 @@
-import bcrypt from "bcryptjs";
-import dotenv from "dotenv";
-import express from "express";
-import { ENV } from "../config/index.js";
 import bcryptjs from "bcryptjs";
+import express from "express";
 import nodemailer from "nodemailer";
-
-dotenv.config();
 
 const { req, res } = express();
 
 export const passwordUtils = {
   length: 8,
-  regex: ENV.IS_PROD
+  regex: process.env.IS_PROD
     ? /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?.&])[A-Za-z\d@$!%*?.&]{8,}$/
     : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?.&])[A-Za-z\d@$!%*?.&]{8,}$/,
-  error: ENV.IS_PROD
+  error: process.env.IS_PROD
     ? `Password: Min 8 characters, with an uppercase, a lowercase, a number, and a special character.`
     : "Password: Min 8 characters, with an uppercase, a lowercase, a number, and a special character.",
 };

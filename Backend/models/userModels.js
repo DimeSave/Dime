@@ -3,7 +3,7 @@ import {
   Sequelize,
   DataTypes
 } from "sequelize";
-import { db } from "../config/index.js";
+import  db  from "../config/dbconfig.js";
 
 const TABLE_NAME = "userModels";
 
