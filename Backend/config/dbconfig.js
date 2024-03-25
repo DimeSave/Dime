@@ -1,26 +1,16 @@
 import { Sequelize } from "sequelize";
 import dotenv from 'dotenv';
-import ENV from "./env.js";
-
 dotenv.config()
 
-export const db = new Sequelize(
-  ENV.DB_NAME,
-  ENV.DB_USERNAME,
-  ENV.DB_PASSWORD,
-  {
-    host: ENV.DB_HOST,
-    dialect: "mysql",
-  }
-);
+const DB_NAME = process.env.NODE_ENV === "production" ? process.env.PROD_DB_NAME : process.env.DB_NAME;
+const DB_USERNAME = process.env.NODE_ENV === "production" ? process.env.PROD_DB_USERNAME : process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.NODE_ENV === "production" ? process.env.PROD_DB_PASSWORD : process.env.DB_PASSWORD;
+const DB_HOST = process.env.NODE_ENV === 'production' ? process.env.PROD_DB_HOST : process.env.DB_HOST
 
-  
-// db.authenticate()
-//    .then(() => {
-//     console.log("DATABASE CONNECTED");
-//    }).catch((error) => {
-//     console.error('Unable to connect to the database: ', error);
-//    });
 
+export const db = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+  host: DB_HOST,
+  dialect: "mysql",
+});
 
 export default db;

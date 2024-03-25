@@ -1,23 +1,21 @@
-import express from "express";
-import createError from "http-errors";
-import path from "path";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
 import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
 import logger from "morgan";
-import { db, ENV } from "./config/index.js";
 import swaggerUi from "swagger-ui-express";
-import specs from "./swagger.js";
+import  db from "./config/dbconfig.js";
 import apiV1Routes from "./routes/index.js";
 import userRoutes from "./routes/users.js";
+import specs from "./swagger.js";
 dotenv.config();
 
 const app = express();
-const port = ENV.PORT || 5500;
-
+const port = process.env.PORT || 5500;
+console.log(process.env)
 const allowedOrigins = [
-  ENV.FE_BASE_URL,
-  ENV.IS_PROD ? "" : `http://localhost:${port}`,
+  process.env.FE_BASE_URL,
+  process.env.IS_PROD ? "" : `http://localhost:${port}`,
 ].filter(Boolean);
 
 const corsOptions = {

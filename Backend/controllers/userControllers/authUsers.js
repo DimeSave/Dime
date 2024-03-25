@@ -1,22 +1,18 @@
 import express from "express";
+import jwt from "jsonwebtoken";
 import { Op } from "sequelize";
 import { v4 as uuidV4 } from "uuid";
 import { HTTP_STATUS_CODE } from "../../constants/httpStatusCode.js";
+import userModels from "../../models/userModels.js";
 import {
-  passwordUtils,
   PasswordHarsher,
   generateLongString,
+  passwordUtils,
   sendRegistrationEmail,
 } from "../../utilities/helpers.js";
 import logger from "../../utilities/logger.js";
 import { userRegisterSchema } from "../../utilities/validators/index.js";
-import userModels from "../../models/userModels.js";
-import nodemailer from "nodemailer"
-import dotenv from "dotenv";
-import ENV, { APP_SECRET } from "../../config/env.js";
-import jwt from "jsonwebtoken";
 
-dotenv.config();
 
 express();
 
@@ -139,7 +135,7 @@ export const loginUser = async (req, res) => {
         lastName: user.lastName,
         email: user.email,
       },
-      `${APP_SECRET}`,
+      `${process.env.APP_SECRET}`,
       { expiresIn: "1d" }
     );
 
