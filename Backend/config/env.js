@@ -11,7 +11,7 @@ console.log(`running in ${process.env.NODE_ENV} mode`)
 const result = dotenv.config({ path: envFilePath })
 
 if (result.error) {
-  console.log(error)
+  console.log(result)
   console.error(`Failed to load environment variables from ${envFilePath}`)
   process.exit(1)
 }
