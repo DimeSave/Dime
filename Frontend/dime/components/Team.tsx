@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 
 const Team = () => {
   return (
@@ -15,6 +16,13 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
+                <Image
+            src="/mrSam.jpg"
+            width={100}
+            height={100}
+            alt="SAMUEL"
+          />
+        
                   
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
@@ -55,6 +63,12 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
+                <Image
+            src="/AJ.jpg"
+            width={100}
+            height={100}
+            alt="AJ"
+          />
                   
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
@@ -95,6 +109,13 @@ const Team = () => {
             <div className="relative block rounded-lg p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
               <div className="flex-row items-center lg:flex">
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-5/12 lg:pr-6">
+
+                <Image
+            src="/kazman.jpg"
+            width={100}
+            height={100}
+            alt="KAZMAN"
+          />
                  
                 </div>
                 <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
