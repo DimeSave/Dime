@@ -4,7 +4,7 @@ import { dimeAbi } from '../dimeAbi';
 
 const contractAddress = '0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2';
 
-export function PayBill() {
+export function Paybill() {
   const { writeContractAsync } = useWriteContract();
 
   const [formData, setFormData] = useState({
@@ -68,4 +68,4 @@ export function PayBill() {
   );
 }
 
-export default PayBill;
+export default Paybill;
