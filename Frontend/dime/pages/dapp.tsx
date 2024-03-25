@@ -7,7 +7,7 @@ import { AddBill } from '../callContract/AddBill'
 import { Deposit } from '../callContract/Deposit'
 import { TransferOwnership } from '../callContract/TransferOwnership'
 import { Withdraw } from '../callContract/Withdraw'
-import { PayBill } from '../callContract/PayBill'
+import { Paybill } from '../callContract/Paybill'
 import {RenounceOwnership} from '../callContract/RenounceOwnership';
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { useAccount } from 'wagmi'
@@ -64,7 +64,7 @@ const Dapp = () => {
       <div className=''>
       <AddBill  />
       <Deposit />
-      <PayBill/>
+      <Paybill/>
       <RenounceOwnership />
       <TransferOwnership />
       <Withdraw />
