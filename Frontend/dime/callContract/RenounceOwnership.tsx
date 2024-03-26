@@ -25,7 +25,7 @@ export function  RenounceOwnership() {
 
   return (
     <div className="container mx-auto p-5"> 
-       <h1 className="text-2xl  text-center font-bold mb-4">Renounce Ownership</h1>
+       <h1 className="text-2xl  text-center font-bold mb-4">RENOUNCE OWNERSHIP</h1>
     <button
         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
       onClick={handleRenounceOwnership}

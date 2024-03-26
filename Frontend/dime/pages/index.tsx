@@ -15,11 +15,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Team from "../components/Team";
 import Hero from "../components/Hero";
+import ProductList from "../components/ProductList";
+
 import ThemeSwitcher from  "../components/ThemeSwitcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const ERC_20_TOKEN_ADDRESS = "0x49F807b115af3C2B80267c1EFFE131C4Df971Fd5";
 
 export default function Home() {
   
@@ -30,6 +31,7 @@ export default function Home() {
     >
       <Navbar />
       <Hero/>
+      <ProductList/>
       <Team/>
       <Footer/>
       

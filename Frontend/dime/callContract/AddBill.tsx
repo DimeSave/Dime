@@ -1,42 +1,38 @@
 import React, { useState } from 'react';
 import { useSimulateContract, useWriteContract } from 'wagmi';
 import { dimeAbi } from '../dimeAbi';
+import { formatEther, parseEther } from 'viem'; 
 
 export function AddBill() {
-  const { data: addbilldata } = useSimulateContract({
-    address: '0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2',
-    abi: dimeAbi,
-    args: ['0x852CB496f904B784B99E418cDE57452a70fc7559', '100', '10'],
-    functionName: 'addBill',
-  });
-
-  const { writeContractAsync } = useWriteContract();
-
   const [formData, setFormData] = useState({
     amount: '',
-    recipientAddress: '',
+    address: '',
     lockDuration: '',
   });
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    field: string
-  ) => {
-    const value = event.target.value;
-    setFormData((prevData) => ({
-      ...prevData,
-      [field]: value,
-    }));
-  };
+  
 
-  const addBill = async () => {
-    console.log('Adding bill...');
+  console.log(formData);
+
+  const { data, error } = useSimulateContract({
+    address: '0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2',
+    abi: dimeAbi,
+    args: [formData.address, parseEther(formData.amount), formData.lockDuration],
+    functionName: 'addBill',
+  });
+
+  console.log('Simulate Contract data:', data);
+  console.log('Simulate Contract error:', error);
+
+  const { writeContractAsync } = useWriteContract();
+
+  const handleAddBill = async () => {
     try {
-      if (addbilldata) { // Check if addbilldata is defined
-        const response = await writeContractAsync(addbilldata.request);
-        console.log('Transaction response:', response);
+      if (data && data.request) {
+        const response = await writeContractAsync(data.request);
+        console.log('Add Bill response:', response);
       } else {
-        console.error('addbilldata is undefined');
+        console.error('Invalid contract data:', data);
       }
     } catch (error) {
       console.error('Error adding bill:', error);
@@ -50,28 +46,34 @@ export function AddBill() {
         <input
           type="text"
           className="border border-purple-500 rounded-md px-4 py-2 w-full mb-4"
+          placeholder="Address"
+          onChange={(event) => {
+            setFormData((prev) => ({ ...prev, address: event.target.value }));
+          }}
+        />
+
+        <input
+          type="text"
+          className="border border-purple-500 rounded-md px-4 py-2 w-full mb-4"
           placeholder="Amount"
-          onChange={(event) => handleInputChange(event, 'amount')}
+          onChange={(event) => {
+            setFormData((prev) => ({ ...prev, amount: event.target.value }));
+          }}
         />
 
         <input
           type="text"
           className="border border-purple-500 rounded-md px-4 py-2 w-full mb-4"
-          placeholder="Recipient Address"
-          onChange={(event) => handleInputChange(event, 'recipientAddress')}
-        />
-
-        <input
-          type="text"
-          className="border border-purple-500 rounded-md px-4 py-2 w-full mb-4"
-          placeholder="Lock Duration"
-          onChange={(event) => handleInputChange(event, 'lockDuration')}
+          placeholder="LockDuration"
+          onChange={(event) => {
+            setFormData((prev) => ({ ...prev, lockDuration: event.target.value }));
+          }}
         />
       </div>
 
       <button
         className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring focus:border-blue-700"
-        onClick={addBill}
+        onClick={handleAddBill}
       >
         Confirm Transaction
       </button>
