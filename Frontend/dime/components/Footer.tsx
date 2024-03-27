@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
       <Link href={'/'}>
         <Image
-            src="/Dime.jpg"
+            src="/Dime.png"
             width={100}
             height={100}
             alt="DIME"
