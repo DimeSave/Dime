@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize";
 
 const database = new Sequelize({
-  dialect: "mysql",
-  storage: "./database.mysql2",
+  dialect: "postgres",
+  storage: "./database.postgres",
 });
 
 export default database;
