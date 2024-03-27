@@ -14,7 +14,7 @@ const Navbar = () => {
       <div>
         <Link href={'/'}>
         <Image
-            src="/Dime.jpg"
+            src="/Dime.png"
             width={100}
             height={100}
             alt="DIME"
