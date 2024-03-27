@@ -10,7 +10,7 @@ const DB_HOST = process.env.NODE_ENV === 'production' ? process.env.PROD_DB_HOST
 
 export const db = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
   host: DB_HOST,
-  dialect: "mysql",
+  dialect: "postgres",
 });
 
 export default db;
